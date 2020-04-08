@@ -74,18 +74,18 @@ function calculateSevereCasesByRequestedTime($infections_by_requested_time)
 
 function calculateTotalHospitalBedForCovid19($hospital_beds, $severe_case)
 {
-    $available_bed_for_covid_19 = floor(((PERCENTAGE_HOSPITAL_BED_ESTIMATE/100) * $hospital_beds));
+    $available_bed_for_covid_19 = (PERCENTAGE_HOSPITAL_BED_ESTIMATE/100) * $hospital_beds;
     return $available_bed_for_covid_19 - $severe_case;
 }
 
 function casesForICUByRequestedTime($infections)
 {
-    return floor(((PERCENTAGE_ICU/100) * $infections));
+    return (PERCENTAGE_ICU/100) * $infections;
 }
 
 function casesForVentilatorsByRequestedTime($infections)
 {
-    return floor(((PERCENTAGE_VENTILATOR/100) * $infections));
+    return (PERCENTAGE_VENTILATOR/100) * $infections;
 }
 
 function dollarsInFlight($infection, $avg_daily_income, $avg_income_population)
