@@ -69,7 +69,7 @@ function normalizeTimeToElapse($period_type, $time_to_elapse)
 
 function calculateSevereCasesByRequestedTime($infections_by_requested_time)
 {
-    return floor(((PERCENTAGE_SEVERE_CASE_ESTIMATE / 100) * $infections_by_requested_time));
+    return (PERCENTAGE_SEVERE_CASE_ESTIMATE / 100) * $infections_by_requested_time;
 }
 
 function calculateTotalHospitalBedForCovid19($hospital_beds, $severe_case)
