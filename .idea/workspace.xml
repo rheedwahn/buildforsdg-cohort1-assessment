@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2faf3c53-c351-4f97-98e0-a8255f67f744" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/estimator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/estimator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/estimator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="45" column="68" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
+            <state relative-caret-position="-379">
+              <caret line="21" column="38" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -135,12 +134,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586343342608</updated>
-      <workItem from="1586343344540" duration="15697000" />
+      <workItem from="1586343344540" duration="16900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15697000" />
+    <option name="totallyTimeSpent" value="16900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="852" extended-state="6" />
@@ -281,8 +280,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/estimator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="45" column="68" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
+        <state relative-caret-position="-379">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="38" />
         </state>
       </provider>
     </entry>

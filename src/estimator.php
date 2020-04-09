@@ -92,5 +92,5 @@ function casesForVentilatorsByRequestedTime($infections)
 
 function dollarsInFlight($infection, $avg_daily_income, $avg_income_population, $period_type, $time_to_elapse)
 {
-    return $infection * $avg_daily_income * $avg_income_population * normalizeTimeToElapse($period_type, $time_to_elapse);
+    return floor((($infection * $avg_daily_income * $avg_income_population) / normalizeTimeToElapse($period_type, $time_to_elapse)));
 }
