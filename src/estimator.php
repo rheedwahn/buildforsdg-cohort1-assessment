@@ -80,12 +80,12 @@ function calculateTotalHospitalBedForCovid19($hospital_beds, $severe_case)
 
 function casesForICUByRequestedTime($infections)
 {
-    return ceil(((PERCENTAGE_ICU/100) * $infections));
+    return floor(((PERCENTAGE_ICU/100) * $infections));
 }
 
 function casesForVentilatorsByRequestedTime($infections)
 {
-    return ceil(((PERCENTAGE_VENTILATOR/100) * $infections));
+    return floor(((PERCENTAGE_VENTILATOR/100) * $infections));
 }
 
 function dollarsInFlight($infection, $avg_daily_income, $avg_income_population)
