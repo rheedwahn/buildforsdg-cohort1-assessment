@@ -1,7 +1,5 @@
 <?php
 
-const ESTIMATED_DAYS = 30;
-
 const PERCENTAGE_SEVERE_CASE_ESTIMATE = 15;
 
 const PERCENTAGE_HOSPITAL_BED_ESTIMATE = 35;
@@ -29,7 +27,9 @@ function formatOutput($data)
             'casesForICUByRequestedTime' => casesForICUByRequestedTime($infection_impact),
             'casesForVentilatorsByRequestedTime' => casesForVentilatorsByRequestedTime($infection_impact),
             'dollarsInFlight' => dollarsInFlight($infection_impact, $data['region']['avgDailyIncomeInUSD'],
-                                                                    $data['region']['avgDailyIncomePopulation'])
+                                                                    $data['region']['avgDailyIncomePopulation'],
+                                                                    $data['periodType'],
+                                                                    $data['timeToElapse'])
         ],
         'severeImpact' => [
             'currentlyInfected' => $currently_infected = $data['reportedCases'] * 50,
@@ -41,7 +41,9 @@ function formatOutput($data)
             'casesForICUByRequestedTime' => casesForICUByRequestedTime($infection_impact),
             'casesForVentilatorsByRequestedTime' => casesForVentilatorsByRequestedTime($infection_impact),
             'dollarsInFlight' => dollarsInFlight($infection_impact, $data['region']['avgDailyIncomeInUSD'],
-                                                                    $data['region']['avgDailyIncomePopulation'])
+                                                                    $data['region']['avgDailyIncomePopulation'],
+                                                                    $data['periodType'],
+                                                                    $data['timeToElapse'])
         ]
     ];
 }
@@ -88,7 +90,7 @@ function casesForVentilatorsByRequestedTime($infections)
     return floor(((PERCENTAGE_VENTILATOR/100) * $infections));
 }
 
-function dollarsInFlight($infection, $avg_daily_income, $avg_income_population)
+function dollarsInFlight($infection, $avg_daily_income, $avg_income_population, $period_type, $time_to_elapse)
 {
-    return $infection * $avg_daily_income * $avg_income_population * ESTIMATED_DAYS;
+    return $infection * $avg_daily_income * $avg_income_population * normalizeTimeToElapse($period_type, $time_to_elapse);
 }
