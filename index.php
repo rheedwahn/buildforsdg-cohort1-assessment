@@ -10,6 +10,8 @@ const ESTIMATOR_ROUTE_JSON = '/api/v1/on-covid-19/json';
 
 const ESTIMATOR_ROUTE_XML = '/api/v1/on-covid-19/xml';
 
+var_dump(ESTIMATOR_ROUTE_XML);
+
 header("Access-Control-Allow-Origin: *");
 header("HTTP/1.1 200 OK");
 
