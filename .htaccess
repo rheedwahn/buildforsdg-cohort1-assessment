@@ -1,2 +1,4 @@
-RewriteEngine On
-RewriteRule ^api/v1/on-covid-19/?$ index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^api/v1/on-covid-19/?$ index.php
+</IfModule>
