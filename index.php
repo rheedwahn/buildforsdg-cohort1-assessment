@@ -84,6 +84,7 @@ function pingDomain($domain,$port)
 
 function generateXmlResponse($content)
 {
-    $xml = new SimpleXMLElement($content);
+    $xml = new SimpleXMLElement('<root/>');
+    array_walk_recursive($content, array ($xml, 'addChild'));
     return $xml->asXML();
 }
