@@ -36,8 +36,8 @@ if(in_array($request_url, [ESTIMATOR_ROUTE, ESTIMATOR_ROUTE_JSON]) && $request_m
 if($request_url === ESTIMATOR_ROUTE_XML && $request_method === "POST") {
     header("Content-Type: text/xml;charset=utf-8");
     try {
-        echo json_encode(covid19ImpactEstimator(json_decode(file_get_contents("php://input"), true)),
-            JSON_PRETTY_PRINT);
+        $response = covid19ImpactEstimator(json_decode(file_get_contents("php://input"), true));
+        echo generateXmlResponse($response);
         $response_time = pingDomain(($host.$request_url), $port);
         file_put_contents('log.txt', logContent($response_time, 200, $request_method, $request_url),
             FILE_APPEND);
@@ -80,4 +80,10 @@ function pingDomain($domain,$port)
         $status = floor($status);
     }
     return $status.' ms';
+}
+
+function generateXmlResponse($content)
+{
+    $xml = new SimpleXMLElement($content);
+    return $xml->asXML();
 }
