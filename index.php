@@ -37,7 +37,7 @@ if($request_url === ESTIMATOR_ROUTE_XML && $request_method === "POST") {
     header("Content-Type: text/xml;charset=utf-8");
     try {
         $response = covid19ImpactEstimator(json_decode(file_get_contents("php://input"), true));
-        echo generateXmlResponse($response);
+        echo arrayToXml($response);
         $response_time = pingDomain(($host.$request_url), $port);
         file_put_contents('log.txt', logContent($response_time, 200, $request_method, $request_url),
             FILE_APPEND);
@@ -82,9 +82,30 @@ function pingDomain($domain,$port)
     return $status.' ms';
 }
 
-function generateXmlResponse($content)
-{
-    $xml = new SimpleXMLElement('<root/>');
-    array_walk_recursive($content, array ($xml, 'addChild'));
-    return $xml->asXML();
+function arrayToXml($array, $rootElement = null, $xml = null) {
+    $_xml = $xml;
+
+    // If there is no Root Element then insert root
+    if ($_xml === null) {
+        $_xml = new SimpleXMLElement($rootElement !== null ? $rootElement : '<root/>');
+    }
+
+    // Visit all key value pair
+    foreach ($array as $k => $v) {
+
+        // If there is nested array then
+        if (is_array($v)) {
+
+            // Call function for nested array
+            arrayToXml($v, $k, $_xml->addChild($k));
+        }
+
+        else {
+
+            // Simply add child element.
+            $_xml->addChild($k, $v);
+        }
+    }
+
+    return $_xml->asXML();
 }
