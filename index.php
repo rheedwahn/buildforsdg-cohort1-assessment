@@ -34,7 +34,7 @@ if(in_array($request_url, [ESTIMATOR_ROUTE, ESTIMATOR_ROUTE_JSON]) && $request_m
 }
 
 if($request_url === ESTIMATOR_ROUTE_XML && $request_method === "POST") {
-    header("Content-Type: text/xml;charset=utf-8");
+    header("Content-Type: application/xml;charset=utf-8");
     try {
         $response = covid19ImpactEstimator(json_decode(file_get_contents("php://input"), true));
         echo arrayToXml($response);
