@@ -49,6 +49,7 @@ if($request_url === ESTIMATOR_ROUTE_XML && $request_method === "POST") {
 }
 
 if($request_url === LOG_ROUTE && $request_method === "GET") {
+    header('Content-Type: application/json');
     try {
         echo file_get_contents('log.txt');
         $response_time = pingDomain(($host.$request_url), $port);
