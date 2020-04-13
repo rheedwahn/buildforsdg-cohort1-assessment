@@ -83,7 +83,7 @@ function pingDomain($domain,$port)
         $status = ($stoptime - $starttime) * 1000;
         $status = number_format($status, 2);
     }
-    return $status.' seconds';
+    return $status.'ms';
 }
 
 function arrayToXml($array, $rootElement = null, $xml = null) {
