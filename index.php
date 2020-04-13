@@ -51,7 +51,7 @@ if($request_url === ESTIMATOR_ROUTE_XML && $request_method === "POST") {
 }
 
 if($request_url === LOG_ROUTE && $request_method === "GET") {
-    header('Content-Type: application/json');
+    header('Content-Type: text/plain');
     try {
         echo file_get_contents('log.txt');
 
