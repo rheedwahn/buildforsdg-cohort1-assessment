@@ -1,4 +1,0 @@
-1586778600		on-covid-19/logs		done in 1 seconds
-1586778604		on-covid-19/xml		done in 1 seconds
-1586778609		on-covid-19/json		done in 5 seconds
-1586778613		on-covid-19/logs		done in 1 seconds

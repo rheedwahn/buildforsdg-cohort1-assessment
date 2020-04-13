@@ -81,7 +81,7 @@ function pingDomain($domain,$port)
     } else {
         fclose($file);
         $status = ($stoptime - $starttime) * 1000;
-        $status = floor($status);
+        $status = number_format($status, 2);
     }
     return $status.' seconds';
 }
