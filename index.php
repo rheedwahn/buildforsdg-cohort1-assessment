@@ -68,7 +68,7 @@ if($request_url === LOG_ROUTE && $request_method === "GET") {
 
 function logContent($response_time, $response_code, $method, $request_url)
 {
-    return $method." \t\t" .$request_url." \t\t" .$response_code." \t\t" .$response_time."\n";
+    return $method."\t\t" .$request_url."\t\t" .$response_code."\t\t" .$response_time."\n";
 }
 
 function pingDomain($domain,$port)
