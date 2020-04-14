@@ -85,7 +85,11 @@ function pingDomain($domain,$port)
         $status = floor($status);
 
     }
-    return ($status + 10).'ms';
+    if(strlen($status) > 1) {
+        return $status.'ms';
+    }else {
+        return '0'.$status.'ms';
+    }
 }
 
 function arrayToXml($array, $rootElement = null, $xml = null) {
