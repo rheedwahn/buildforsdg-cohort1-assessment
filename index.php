@@ -77,7 +77,7 @@ function logContent($response_time, $response_code, $method, $request_url)
 function pingDomain($starttime)
 {
     $stoptime = microtime(true);
-    $status = ($stoptime - $starttime) * 1000;
+    $status = floor(($stoptime - $starttime) * 1000);
     if(strlen($status) > 1) {
         return $status.'ms';
     }else {
