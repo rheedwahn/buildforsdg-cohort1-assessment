@@ -53,11 +53,12 @@ if($request_url === ESTIMATOR_ROUTE_XML && $request_method === "POST") {
 if($request_url === LOG_ROUTE && $request_method === "GET") {
     header('Content-Type: text/plain');
     try {
-        echo file_get_contents('log.txt');
-
         $response_time = pingDomain(($host.$request_url), $port);
         file_put_contents('log.txt', logContent($response_time, 200, $request_method, $request_url),
-                            FILE_APPEND);
+            FILE_APPEND);
+
+        echo file_get_contents('log.txt');
+
     }catch (Exception $e) {
         $response_time = pingDomain(($host.$request_url), $port);
         file_put_contents('log.txt', logContent($response_time, 500, $request_method, $request_url),
@@ -67,7 +68,7 @@ if($request_url === LOG_ROUTE && $request_method === "GET") {
 
 function logContent($response_time, $response_code, $method, $request_url)
 {
-    return $method."\t\t".$request_url."\t\t".$response_code."\t\t".$response_time."\n";
+    return $method." \t\t" .$request_url." \t\t" .$response_code." \t\t" .$response_time."\n";
 }
 
 function pingDomain($domain,$port)
