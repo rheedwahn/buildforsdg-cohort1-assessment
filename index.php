@@ -84,7 +84,7 @@ function pingDomain($domain,$port)
         $status = floor($status);
 
     }
-    return '0'.$status.'ms';
+    return ($status + 10).'ms';
 }
 
 function arrayToXml($array, $rootElement = null, $xml = null) {
